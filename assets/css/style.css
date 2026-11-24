@@ -62,63 +62,56 @@ a{color:inherit}
 .campaign::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.8))}
 
 /* CIELO */
-.cielo{background:radial-gradient(70% 55% at 50% 0%,rgba(47,143,208,.28),transparent 70%),#000;padding:clamp(90px,12vw,160px) var(--pad) clamp(60px,8vw,110px);text-align:center}
+.cielo{background:radial-gradient(70% 55% at 50% 0%,rgba(47,143,208,.28),transparent 70%),#000;padding:clamp(80px,10vw,130px) 0 clamp(56px,7vw,96px);text-align:center}
 .cielo .eyebrow{color:var(--cielo)}
 .cielo .date{font-weight:300;font-size:clamp(22px,3vw,34px);letter-spacing:.3em;color:var(--cielo);margin:-8px 0 34px}
-.cielo .frase{font-weight:300;font-style:italic;font-size:clamp(17px,1.8vw,21px);color:var(--humo);margin:0 auto 46px;max-width:36ch}
-.triptych{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:clamp(10px,1.4vw,20px);max-width:1360px;margin:0 auto 40px;align-items:center}
-.triptych figure{margin:0;overflow:hidden}
-.triptych .side{aspect-ratio:3/4}
-.triptych .main{aspect-ratio:1}
-.triptych video{aspect-ratio:9/16}
-@media(max-width:760px){.triptych{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.triptych .main{grid-column:1/-1;order:-1}}
-
-/* dos retratos (como las parejas de looks) */
-.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
-.duo figure{margin:0;aspect-ratio:3/4;overflow:hidden;position:relative}
-.duo figcaption{position:absolute;left:0;right:0;bottom:28px;text-align:center}
-@media(max-width:600px){.duo{grid-template-columns:1fr}}
 
 /* texto editorial con imagen */
-.editorial{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:90svh}
+.editorial{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:72svh}
 .editorial figure{margin:0;overflow:hidden}
 .editorial .copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,7vw,120px)}
 .editorial p{max-width:52ch;color:#d9d5d0;margin:0 0 18px}
 .editorial.rev figure{order:2}
 @media(max-width:860px){.editorial{grid-template-columns:1fr}.editorial figure{aspect-ratio:1}.editorial.rev figure{order:0}}
 
-/* números */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--linea)}
-.stat{padding:clamp(34px,5vw,64px) 16px;text-align:center;border-right:1px solid var(--linea)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-weight:300;font-size:clamp(30px,4vw,54px);letter-spacing:.04em;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
-.stat span{display:block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--humo)}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--linea)}}
-
-/* discografía */
-.disco{padding:clamp(80px,10vw,140px) var(--pad);max-width:1100px;margin:0 auto}
-.disco .head{text-align:center;margin-bottom:48px}
-.rel{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
-.rel li{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--linea)}
-.rel .y{font-size:12px;color:var(--humo);letter-spacing:.14em;font-variant-numeric:tabular-nums}
-.rel .t{font-size:clamp(17px,2vw,22px);font-weight:400;letter-spacing:.08em;text-transform:uppercase}
-.rel .d{font-size:12px;color:var(--humo);letter-spacing:.06em;text-align:right}
-.rel li.new .t{color:var(--cielo)}
-@media(max-width:600px){.rel li{grid-template-columns:52px minmax(0,1fr)}.rel .d{grid-column:2;text-align:left}}
-
-/* en vivo */
-.live{padding:clamp(80px,10vw,140px) var(--pad)}
-.live .head{text-align:center;margin-bottom:56px}
-.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,48px);max-width:1240px;margin:0 auto}
-.cols h3{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--rojo-s);margin:0 0 16px}
-.cols ul{list-style:none;margin:0 0 34px;padding:0}
-.cols li{padding:8px 0;border-bottom:1px solid var(--linea);font-size:14px;letter-spacing:.03em}
-.cols li small{color:var(--humo);font-size:12px}
-@media(max-width:960px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.cols{grid-template-columns:1fr}}
+/* carruseles */
+.band-sec{padding:clamp(64px,8vw,110px) 0}
+.band-sec .head{text-align:center;margin-bottom:36px;padding:0 var(--pad)}
+.carousel{position:relative;margin:0 auto 36px;max-width:1440px}
+.track{display:flex;gap:clamp(10px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:0 var(--pad);scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track>*{flex:none;scroll-snap-align:start;min-width:0;margin:0}
+.slide{height:clamp(360px,62vh,620px);overflow:hidden;background:var(--grafito)}
+.slide.sq{aspect-ratio:1}
+.slide.pt{aspect-ratio:3/4}
+.ctrl{display:flex;align-items:center;gap:18px;max-width:520px;margin:22px auto 0;padding:0 var(--pad)}
+.ctrl button{flex:none;width:44px;height:44px;border:1px solid var(--linea);background:none;color:var(--hueso);font:300 18px/1 "Montserrat",sans-serif;cursor:pointer;transition:border-color .2s,opacity .2s}
+.ctrl button:hover{border-color:var(--hueso)}
+.ctrl button:disabled{opacity:.3;cursor:default}
+.bar{flex:1;height:1px;background:var(--linea);position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--hueso);transition:transform .2s}
+.card{width:clamp(230px,24vw,300px);aspect-ratio:3/4;background:var(--grafito);border:1px solid var(--linea);padding:24px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.card .y{position:absolute;top:22px;left:24px;font-size:11px;letter-spacing:.24em;color:var(--humo)}
+.card h3{margin:0;font-weight:300;font-size:clamp(22px,2.2vw,28px);line-height:1.1;letter-spacing:.08em;text-transform:uppercase}
+.card p{margin:8px 0 0;font-size:12px;letter-spacing:.06em;color:var(--humo)}
+.card.img{padding:0;border:0}
+.card.img img{position:absolute;inset:0}
+.card.img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,.85))}
+.card.img>div{position:relative;z-index:1;padding:24px}
+.card.img .y{position:static;display:block;margin-bottom:8px;color:var(--hueso)}
+.card.img p{color:#d9d5d0}
+.card.list{justify-content:flex-start;width:clamp(250px,26vw,320px);aspect-ratio:auto;align-self:stretch}
+.card.list h3{font-size:11px;font-weight:600;letter-spacing:.28em;color:var(--rojo-s);margin-bottom:14px}
+.card.list ul{list-style:none;margin:0;padding:0}
+.card.list li{padding:8px 0;border-bottom:1px solid var(--linea);font-size:14px;letter-spacing:.03em}
+.cielo .carousel{margin-top:8px}
+.mini-stats{display:flex;gap:40px;margin-top:18px;padding-top:22px;border-top:1px solid var(--linea)}
+.mini-stats b{display:block;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1;letter-spacing:.04em}
+.mini-stats span{display:block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--humo)}
+.campaign.short{min-height:70svh}
 
 /* booking */
-.booking{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:120px var(--pad)}
+.booking{position:relative;min-height:80svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:120px var(--pad)}
 .booking>img{position:absolute;inset:0;opacity:.45}
 .booking .copy{position:relative;z-index:1;max-width:760px}
 .booking .logo-r{width:min(380px,72vw);margin:0 auto 34px;height:auto}
