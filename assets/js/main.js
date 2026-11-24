@@ -41,3 +41,38 @@
     items.forEach((el) => el.classList.add('in'));
   }
 }
+
+// Carruseles: flechas, teclado y barra de progreso
+{
+  document.querySelectorAll('.carousel').forEach((car) => {
+    const track = car.querySelector('.track');
+    const prev = car.querySelector('.prev');
+    const next = car.querySelector('.next');
+    const bar = car.querySelector('.bar i');
+    const step = () => {
+      const first = track.firstElementChild;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const ratio = max > 0 ? track.scrollLeft / max : 0;
+      const size = track.scrollWidth > 0 ? Math.min(1, track.clientWidth / track.scrollWidth) : 1;
+      bar.style.width = (size * 100) + '%';
+      bar.style.transform = 'translateX(' + (ratio * (1 / size - 1) * 100) + '%)';
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+      car.querySelector('.ctrl').style.visibility = max > 2 ? 'visible' : 'hidden';
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); }
+    });
+    track.addEventListener('scroll', update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(track);
+    update();
+  });
+}
