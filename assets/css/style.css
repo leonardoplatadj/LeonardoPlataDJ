@@ -48,7 +48,7 @@ a{color:inherit}
 /* héroe */
 .hero{position:relative;height:100svh;min-height:560px;overflow:hidden}
 .hero picture,.hero img{position:absolute;inset:0}
-.hero img{object-position:40% 30%;animation:breathe 18s ease-in-out infinite alternate}
+.hero img{object-position:42% 30%;}@media(max-width:760px){.hero img{object-position:60% 20%}}.hero img{animation:breathe 18s ease-in-out infinite alternate}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.75))}
 .hero .copy{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,8vh,90px);text-align:center;padding:0 var(--pad)}
 .hero .copy .title{margin-bottom:18px}
